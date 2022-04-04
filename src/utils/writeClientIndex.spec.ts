@@ -17,6 +17,7 @@ describe('writeClientIndex', () => {
         const templates: Templates = {
             index: () => 'index',
             client: () => 'client',
+	    packageJson: () => 'packageJson',
             exports: {
                 model: () => 'model',
                 schema: () => 'schema',

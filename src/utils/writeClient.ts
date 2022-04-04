@@ -13,6 +13,7 @@ import { writeClientIndex } from './writeClientIndex';
 import { writeClientModels } from './writeClientModels';
 import { writeClientSchemas } from './writeClientSchemas';
 import { writeClientServices } from './writeClientServices';
+import { writeClientPackageDef } from './writeClientPackageDef';
 
 /**
  * Write our OpenAPI client, using the given templates at the given output
@@ -50,7 +51,6 @@ export const writeClient = async (
 ): Promise<void> => {
 
     const outputPath = resolve(process.cwd(), output, "src");
-    console.log("OUTPUT PATH: ", outputPath);
     const outputPathCore = resolve(outputPath, 'core');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
@@ -114,4 +114,5 @@ export const writeClient = async (
             clientName
         );
     }
+    await writeClientPackageDef(templates, outputPath, indent, clientName);
 };
