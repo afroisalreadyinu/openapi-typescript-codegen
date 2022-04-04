@@ -48,7 +48,9 @@ export const writeClient = async (
     clientName?: string,
     request?: string
 ): Promise<void> => {
-    const outputPath = resolve(process.cwd(), output);
+
+    const outputPath = resolve(process.cwd(), output, "src");
+    console.log("OUTPUT PATH: ", outputPath);
     const outputPathCore = resolve(outputPath, 'core');
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
